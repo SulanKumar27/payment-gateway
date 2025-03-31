@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PayPalController;
 use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\RazorpayPaymentController;
+use App\Http\Controllers\ChatbotController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -31,6 +32,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('razorpay-payment', [RazorpayPaymentController::class, 'index']);
     Route::post('razorpay-payment', [RazorpayPaymentController::class, 'store'])->name('razorpay.payment.store');
+
+    Route::get('ai-chatbot', [ChatbotController::class, 'index']);
+    Route::post('ai-chatbot', [ChatbotController::class, 'store'])->name('store.chatbot');
 });
   
 /*------------------------------------------
