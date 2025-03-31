@@ -36,8 +36,6 @@ class RazorpayPaymentController extends Controller
         if(!empty($input['razorpay_payment_id'])) {
             try {
                 $response = $api->payment->fetch($input['razorpay_payment_id'])->capture(['amount'=>$payment['amount']]);
-
-                dd($response);
   
             } catch (Exception $e) {
                 return redirect()->back()
